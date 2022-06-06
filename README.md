@@ -1,3 +1,3 @@
 # sbox-oinicio
 
-SOLTA A BRABA DJ HAHAHHAHAHAHA
+Sim, esse projeto foi abandonado. :(
