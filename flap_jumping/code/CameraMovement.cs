@@ -41,12 +41,12 @@ public sealed class CameraMovement : Component
 			{
 				var camForward = eyeAngles.ToRotation().Forward;
 				var camTrace = Scene.Trace.Ray(camPos, camPos - (camForward * Distance))
-				.WithoutTags("player")
+				.WithoutTags("player", "trigger")
 				.Run();
 
 				if(camTrace.Hit)
 				{
-					camPos = camTrace.HitPosition = camTrace.Normal;
+					camPos = camTrace.HitPosition;
 				}
 				else
 				{

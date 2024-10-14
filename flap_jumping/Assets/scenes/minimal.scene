@@ -76,7 +76,7 @@
             "AfterUILayer": false
           },
           "RenderType": "On",
-          "Tint": "0.39546,0.51163,0.27128,1"
+          "Tint": "0.3907,0.3907,0.3907,1"
         },
         {
           "__type": "Sandbox.BoxCollider",
@@ -92,9 +92,9 @@
       "__guid": "3c2490ef-54a0-49bb-8f13-490e40aa51d1",
       "Flags": 0,
       "Name": "Cube",
-      "Position": "21.41682,74.1244,14.40159",
+      "Position": "16.6685,80.77029,35.71913",
       "Rotation": "0.00000001819328,-0.00000000000000008235059,0.3052325,0.952278",
-      "Scale": "0.5632889,0.5632889,0.5632889",
+      "Scale": "0.5632889,0.5632889,1.423794",
       "Enabled": true,
       "Components": [
         {
@@ -140,9 +140,9 @@
       "__guid": "523e3e8f-a4ec-4ec1-af9a-d86ffc9c17e1",
       "Flags": 0,
       "Name": "Cube (1)",
-      "Position": "17.08192,30.02047,14.40159",
+      "Position": "41.95431,46.66912,85.89037",
       "Rotation": "0.00000001819328,-0.00000000000000008235059,0.3052325,0.952278",
-      "Scale": "0.5632889,0.5632889,0.5632889",
+      "Scale": "0.5632889,1.099959,0.5632889",
       "Enabled": true,
       "Components": [
         {
@@ -188,9 +188,9 @@
       "__guid": "5b483a09-bbf2-4949-98c7-a73b789d0ee7",
       "Flags": 0,
       "Name": "Cube (2)",
-      "Position": "49.53706,34.08897,15.81086",
+      "Position": "63.28325,14.84906,35.91365",
       "Rotation": "0.00000001819328,-0.00000000000000008235059,0.3052325,0.952278",
-      "Scale": "0.5632889,0.5632889,0.5632889",
+      "Scale": "0.5632889,0.5632889,1.424409",
       "Enabled": true,
       "Components": [
         {
@@ -246,7 +246,7 @@
           "Bounciness": 0.3,
           "GroundAngle": 45,
           "Height": 64,
-          "IgnoreLayers": "player",
+          "IgnoreLayers": "player,trigger",
           "Radius": 16,
           "StepHeight": 18,
           "UseCollisionRules": false
@@ -333,7 +333,7 @@
           "__guid": "53fa5b35-68f4-485b-a802-de236675c97b",
           "Flags": 0,
           "Name": "Camera",
-          "Position": "-54.52699,-11.60038,59.14916",
+          "Position": "-102.5996,0,67.20068",
           "Tags": "maincamera",
           "Enabled": true,
           "Components": [
@@ -361,7 +361,7 @@
                 "_type": "gameobject",
                 "go": "a09e3572-f426-4915-87bb-952ef703b52e"
               },
-              "Distance": 0,
+              "Distance": 150,
               "Head": {
                 "_type": "gameobject",
                 "go": "e0187732-66d5-48c1-ba81-4bab880e1a2d"
