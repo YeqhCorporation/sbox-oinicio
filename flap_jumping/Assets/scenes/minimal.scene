@@ -30,6 +30,7 @@
         {
           "__type": "Sandbox.SkyBox2D",
           "__guid": "de79e9e0-5c37-4c54-ac67-bfcdb1d5483b",
+          "SkyIndirectLighting": true,
           "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
           "Tint": "1,1,1,1"
         },
@@ -45,6 +46,7 @@
           "Feathering": 0.02,
           "FrameInterval": 5,
           "MaxDistance": 512,
+          "MultiBounce": false,
           "Projection": "Sphere",
           "RenderDynamically": false,
           "TintColor": "1,1,1,1",
@@ -67,6 +69,12 @@
           "BodyGroups": 18446744073709551615,
           "MaterialOverride": "materials/default.vmat",
           "Model": "models/dev/plane.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
           "RenderType": "On",
           "Tint": "0.39546,0.51163,0.27128,1"
         },
@@ -95,6 +103,12 @@
           "BodyGroups": 18446744073709551615,
           "MaterialOverride": "materials/default.vmat",
           "Model": "models/dev/box.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
           "RenderType": "On",
           "Tint": "1,0,0.93333,1"
         },
@@ -113,8 +127,10 @@
           "Gravity": true,
           "LinearDamping": 0,
           "Locking": {},
+          "MassCenterOverride": "0,0,0",
           "MassOverride": 0,
           "MotionEnabled": true,
+          "OverrideMassCenter": false,
           "RigidbodyFlags": 0,
           "StartAsleep": false
         }
@@ -124,7 +140,7 @@
       "__guid": "523e3e8f-a4ec-4ec1-af9a-d86ffc9c17e1",
       "Flags": 0,
       "Name": "Cube (1)",
-      "Position": "40.81348,46.97572,14.40159",
+      "Position": "17.08192,30.02047,14.40159",
       "Rotation": "0.00000001819328,-0.00000000000000008235059,0.3052325,0.952278",
       "Scale": "0.5632889,0.5632889,0.5632889",
       "Enabled": true,
@@ -135,6 +151,12 @@
           "BodyGroups": 18446744073709551615,
           "MaterialOverride": "materials/default.vmat",
           "Model": "models/dev/box.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
           "RenderType": "On",
           "Tint": "1,0,0.93333,1"
         },
@@ -153,8 +175,10 @@
           "Gravity": true,
           "LinearDamping": 0,
           "Locking": {},
+          "MassCenterOverride": "0,0,0",
           "MassOverride": 0,
           "MotionEnabled": true,
+          "OverrideMassCenter": false,
           "RigidbodyFlags": 0,
           "StartAsleep": false
         }
@@ -164,7 +188,7 @@
       "__guid": "5b483a09-bbf2-4949-98c7-a73b789d0ee7",
       "Flags": 0,
       "Name": "Cube (2)",
-      "Position": "49.53707,34.08896,43.67614",
+      "Position": "49.53706,34.08897,15.81086",
       "Rotation": "0.00000001819328,-0.00000000000000008235059,0.3052325,0.952278",
       "Scale": "0.5632889,0.5632889,0.5632889",
       "Enabled": true,
@@ -175,6 +199,12 @@
           "BodyGroups": 18446744073709551615,
           "MaterialOverride": "materials/default.vmat",
           "Model": "models/dev/box.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
           "RenderType": "On",
           "Tint": "1,0,0.93333,1"
         },
@@ -193,83 +223,157 @@
           "Gravity": true,
           "LinearDamping": 0,
           "Locking": {},
+          "MassCenterOverride": "0,0,0",
           "MassOverride": 0,
           "MotionEnabled": true,
+          "OverrideMassCenter": false,
           "RigidbodyFlags": 0,
           "StartAsleep": false
         }
       ]
     },
     {
-      "__guid": "3ee1c9f4-07be-4e0b-8b23-67bee2d8ec8a",
+      "__guid": "4ca0c346-8e2a-4a36-8071-f7e23984b5c1",
       "Flags": 0,
-      "Name": "Camera",
-      "Position": "-267.452,-379.653,297.7903",
-      "Rotation": "-0.1448582,0.2860239,0.4279631,0.8450171",
+      "Name": "Player",
+      "Tags": "player",
       "Enabled": true,
       "Components": [
         {
-          "__type": "Sandbox.CameraComponent",
-          "__guid": "cf3cbf96-22b6-4be4-a5d0-672a96c17f9f",
-          "BackgroundColor": "0.33333,0.46275,0.52157,1",
-          "ClearFlags": "All",
-          "FieldOfView": 60,
-          "IsMainCamera": true,
-          "Orthographic": false,
-          "OrthographicHeight": 1204,
-          "Priority": 1,
-          "RenderExcludeTags": "",
-          "RenderTags": "",
-          "TargetEye": "None",
-          "Viewport": "0,0,1,1",
-          "ZFar": 10000,
-          "ZNear": 10
+          "__type": "Sandbox.CharacterController",
+          "__guid": "b6dbdcdc-207f-4b79-b27f-f8a0c4f64332",
+          "Acceleration": 10,
+          "Bounciness": 0.3,
+          "GroundAngle": 45,
+          "Height": 64,
+          "IgnoreLayers": "player",
+          "Radius": 16,
+          "StepHeight": 18,
+          "UseCollisionRules": false
         },
         {
-          "__type": "Sandbox.Bloom",
-          "__guid": "d73ef723-c888-41d4-802e-f797c79318be",
-          "BloomColor": {
-            "color": [
-              {
-                "c": "1,1,1,1"
-              },
-              {
-                "t": 1,
-                "c": "1,1,1,1"
-              }
-            ],
-            "alpha": []
+          "__type": "PlayerMovement",
+          "__guid": "84d94ea1-a820-4054-bfd8-e3a2bc0419fc",
+          "AirControl": 0.1,
+          "Body": {
+            "_type": "gameobject",
+            "go": "a09e3572-f426-4915-87bb-952ef703b52e"
           },
-          "BloomCurve": [
+          "CrouchSpeed": 90,
+          "GroundControl": 4,
+          "Head": {
+            "_type": "gameobject",
+            "go": "e0187732-66d5-48c1-ba81-4bab880e1a2d"
+          },
+          "JumpForce": 400,
+          "MaxForce": 50,
+          "RunSpeed": 290,
+          "Speed": 160
+        },
+        {
+          "__type": "Sandbox.Citizen.CitizenAnimationHelper",
+          "__guid": "af230749-a0c4-4da7-ad98-053f4b71b446",
+          "BodyWeight": 1,
+          "EyeSource": {
+            "_type": "gameobject",
+            "go": "e0187732-66d5-48c1-ba81-4bab880e1a2d"
+          },
+          "EyesWeight": 1,
+          "HeadWeight": 1,
+          "LookAtEnabled": false,
+          "Target": {
+            "_type": "component",
+            "component_id": "096eddae-1f60-43f3-8841-f03fd26afbb9",
+            "go": "a09e3572-f426-4915-87bb-952ef703b52e",
+            "component_type": "SkinnedModelRenderer"
+          }
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "a09e3572-f426-4915-87bb-952ef703b52e",
+          "Flags": 0,
+          "Name": "Body",
+          "Enabled": true,
+          "Components": [
             {
-              "y": 0.5
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "096eddae-1f60-43f3-8841-f03fd26afbb9",
+              "BodyGroups": 341,
+              "CreateBoneObjects": false,
+              "Model": "models/citizen/citizen.vmdl",
+              "Morphs": {},
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            }
+          ]
+        },
+        {
+          "__guid": "e0187732-66d5-48c1-ba81-4bab880e1a2d",
+          "Flags": 0,
+          "Name": "Head",
+          "Position": "1.528486,0,60.36175",
+          "Enabled": true
+        },
+        {
+          "__guid": "53fa5b35-68f4-485b-a802-de236675c97b",
+          "Flags": 0,
+          "Name": "Camera",
+          "Position": "-54.52699,-11.60038,59.14916",
+          "Tags": "maincamera",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.CameraComponent",
+              "__guid": "f9bfd5d8-76c5-4310-8862-5dbfcd744a2f",
+              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "ClearFlags": "All",
+              "FieldOfView": 79.35,
+              "IsMainCamera": true,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "Priority": 1,
+              "RenderExcludeTags": "",
+              "RenderTags": "",
+              "TargetEye": "None",
+              "Viewport": "0,0,1,1",
+              "ZFar": 10000,
+              "ZNear": 10
             },
             {
-              "x": 1,
-              "y": 1
+              "__type": "CameraMovement",
+              "__guid": "9113f46d-464f-42e6-bb6d-a42cf9f9b1f0",
+              "Body": {
+                "_type": "gameobject",
+                "go": "a09e3572-f426-4915-87bb-952ef703b52e"
+              },
+              "Distance": 0,
+              "Head": {
+                "_type": "gameobject",
+                "go": "e0187732-66d5-48c1-ba81-4bab880e1a2d"
+              },
+              "Player": {
+                "_type": "component",
+                "component_id": "84d94ea1-a820-4054-bfd8-e3a2bc0419fc",
+                "go": "4ca0c346-8e2a-4a36-8071-f7e23984b5c1",
+                "component_type": "PlayerMovement"
+              }
             }
-          ],
-          "Mode": "Additive",
-          "Strength": 0.5,
-          "Threshold": 0.5,
-          "ThresholdWidth": 0.5
-        },
-        {
-          "__type": "Sandbox.Tonemapping",
-          "__guid": "9d76f362-7227-40eb-a189-69353c780c46",
-          "__version": 1,
-          "ExposureBias": 2,
-          "ExposureCompensation": 0,
-          "ExposureMethod": "RGB",
-          "MaximumExposure": 2,
-          "MinimumExposure": 1,
-          "Mode": "Legacy",
-          "Rate": 1
-        },
-        {
-          "__type": "Sandbox.Sharpen",
-          "__guid": "0bffee5e-19f2-41c4-88f9-faefbcce6bf4",
-          "Scale": 0.2
+          ]
         }
       ]
     }
@@ -279,6 +383,7 @@
     "MaxFixedUpdates": 5,
     "NetworkFrequency": 60,
     "NetworkInterpolation": true,
+    "PhysicsSubSteps": 1,
     "ThreadedAnimation": true,
     "TimeScale": 1,
     "UseFixedUpdate": true,

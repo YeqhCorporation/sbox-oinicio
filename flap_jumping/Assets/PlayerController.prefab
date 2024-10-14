@@ -1,0 +1,15 @@
+{
+  "RootObject": {
+    "__guid": "3b8bdc12-3854-400e-9ad6-be619e96d4d6",
+    "Flags": 0,
+    "Name": "Player",
+    "Enabled": true
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}
