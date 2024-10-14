@@ -84,7 +84,8 @@
           "Center": "0,0,-5",
           "IsTrigger": false,
           "Scale": "100,100,10",
-          "Static": false
+          "Static": false,
+          "Surface": "surfaces/concrete.surface"
         }
       ]
     },
@@ -374,6 +375,28 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "__guid": "01309da6-defa-49d2-aef1-9664ac126b0a",
+      "Flags": 0,
+      "Name": "Screen",
+      "Position": "-141.7467,16.93429,356.805",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "699b47f1-4062-4d42-8e8f-76a3ddcc44e4",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ScaleStrategy": "ConsistentHeight",
+          "ZIndex": 100
+        },
+        {
+          "__type": "Sandbox.PlayerHud",
+          "__guid": "dc0e8832-7b1a-4a8a-8bc4-4af9578b96d0"
         }
       ]
     }

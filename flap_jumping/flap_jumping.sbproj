@@ -1,8 +1,8 @@
 {
-  "Title": "Flap Jumping",
+  "Title": "O Inicio",
   "Type": "game",
   "Org": "local",
-  "Ident": "flap_jumping",
+  "Ident": "the_start",
   "Schema": 1,
   "IncludeSourceFiles": false,
   "Resources": null,

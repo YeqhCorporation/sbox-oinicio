@@ -32,6 +32,10 @@ public sealed class PlayerMovement : Component
 	private CharacterController characterController;
 	private CitizenAnimationHelper animationHelper;
 
+	private TimeSince timeSinceLastFootstep = 0;
+	private float footstepInterval = 0.5f;
+
+
 	protected override void OnAwake()
 	{
 		characterController = Components.Get<CharacterController>();
@@ -46,6 +50,7 @@ public sealed class PlayerMovement : Component
 		if(Input.Pressed( "Jump" )) Jump();
 		RotateBody();
 		UpdateAnimations();
+		HandleFootstepSound(); // Chama a função para gerenciar os sons de passos
 	}
 
 	protected override void OnFixedUpdate()
@@ -54,6 +59,72 @@ public sealed class PlayerMovement : Component
 		Move();
 	}
 
+void HandleFootstepSound()
+	{
+		if (characterController.IsOnGround && characterController.Velocity.Length > 100f)
+		{
+			// Jogador está se movendo no chão
+			if (timeSinceLastFootstep > footstepInterval)
+			{
+				PlayFootstepSound();
+				timeSinceLastFootstep = 0; // Reinicia o temporizador dos passos
+
+				// Ajusta o intervalo de acordo com a velocidade (passos mais rápidos ao correr)
+				if (IsSprinting)
+				{
+					footstepInterval = 0.35f; // Intervalo menor ao correr
+				}
+				else if (IsCrouching)
+				{
+					footstepInterval = 0.6f; // Passos mais lentos ao agachar
+				}
+				else
+				{
+					footstepInterval = 0.5f; // Intervalo padrão ao caminhar
+				}
+			}
+		}
+	}
+
+	// Função para tocar som de passo
+	void PlayFootstepSound()
+	{
+		string surfaceType = GetSurfaceTypeUnderPlayer(); // Detecta o tipo de superfície
+		string soundPath = GetFootstepSound(surfaceType); // Mapeia para o som correto
+		Sound.Play(soundPath, characterController.WorldPosition); // Toca o som na posição do jogador
+	}
+
+	// Detecta o tipo de superfície sob o jogador
+	string GetSurfaceTypeUnderPlayer()
+	{
+		var trace = Scene.Trace.Ray(characterController.WorldPosition, characterController.WorldPosition + Vector3.Down * 10f)
+			.Run();
+
+		if (trace.Hit && trace.Surface != null)
+		{
+			return trace.Surface.ResourceName; // Nome do material da superfície
+		}
+
+		return "default"; // Se não detectar, retorna um tipo padrão
+	}
+
+	// Mapeia os tipos de superfície para sons
+	string GetFootstepSound(string surfaceType)
+	{
+		switch (surfaceType)
+		{
+			case "grass":
+				return "sounds/footsteps/footstep-grass.sound"; // Som de passos na grama
+			case "wood":
+				return "sounds/footsteps/footstep-wood.sound"; // Som de passos na madeira
+			case "concrete":
+				return "sounds/footsteps/footstep-concrete.sound"; // Som de passos no concreto
+			case "dirt":
+				return "sounds/footsteps/footstep-dirt.sound"; // Som de passos na terra
+			default:
+				return "sounds/footsteps/footstep-grass.sound"; // Som de passos padrão
+		}
+	}
 	void BuildWishVelocity()
 	{
 		WishVelocity = 0;

@@ -1,0 +1,16 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+	<div class="vitals">
+		<p>Coins: @Player.Coins</p>
+	</div>
+</root>
+
+@code
+{
+	[Property] PlayerMovement Player { get; set;}
+	protected override int BuildHash() => System.HashCode.Combine( Player.Coins );
+}
